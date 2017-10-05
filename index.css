@@ -30,10 +30,15 @@ section {
 	border-radius: 10px;
 }
 
-#drop {
+#drop div {
 	position: relative;
 	top: 50%;
 	transform: translateY(-50%);
+}
+
+#drop[drag-hovering] {
+	background: yellow;
+	transition: 0.5s;
 }
 
 input {
