@@ -7,9 +7,9 @@ let hexFile = getHexFile();
 function update() {
 	console.log(hexFile);
 
-	var avrdudePath = './bin/avrdude ';
-	var avrdudeConfPath = './bin/osx-avrdude.conf';
-	var avrdudeCommand = avrdudePath + '-v -p atmega2560 -C ' + avrdudeConfPath + ' -D -c wiring -b 115200 -P /dev/tty.usbmodem* -U flash:w:' + hexFile + ':i';
+	const avrdudePath = './bin/avrdude ';
+	const avrdudeConfPath = './bin/osx-avrdude.conf';
+	let avrdudeCommand = avrdudePath + '-v -p atmega2560 -C ' + avrdudeConfPath + ' -D -c wiring -b 115200 -P /dev/tty.usbmodem* -U flash:w:' + hexFile + ':i';
 
 	console.log(avrdudeCommand);
 
@@ -27,6 +27,6 @@ function update() {
 	});
 }
 
-var updateButtonEl = document.getElementById('updateButton');
+const updateButtonEl = document.getElementById('updateButton');
 
 updateButtonEl.addEventListener('click', update);

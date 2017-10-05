@@ -1,7 +1,7 @@
 'use strict';
 
-var holder = document.getElementById('drop');
-var hexFile;
+const holder = document.getElementById('drop');
+let hexFile;
 
 holder.ondragover = () => {
 	return false;
@@ -15,7 +15,7 @@ holder.ondragend = () => {
 	return false;
 };
 
-holder.ondrop = (e) => {
+holder.ondrop = function (e) {
 	e.preventDefault();
 
 	for (let f of e.dataTransfer.files) {
