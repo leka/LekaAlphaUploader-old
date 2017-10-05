@@ -1,33 +1,35 @@
 {
-  "name": "app",
-  "productName": "App",
-  "version": "0.0.0",
-  "description": "",
-  "license": "MIT",
-  "repository": "user/repo",
-  "author": {
-    "name": "",
-    "email": "",
-    "url": ""
-  },
-  "scripts": {
-    "test": "xo",
-    "start": "electron .",
-    "build": "electron-packager . --out=dist --asar --overwrite --all"
-  },
-  "dependencies": {
-    "electron-debug": "^1.0.0"
-  },
-  "devDependencies": {
-    "devtron": "^1.1.0",
-    "electron-packager": "^8.0.0",
-    "electron": "^1.6.6",
-    "xo": "^0.18.0"
-  },
-  "xo": {
-    "envs": [
-      "node",
-      "browser"
-    ]
-  }
+	"name": "app",
+	"productName": "Leka Alpha Uploader",
+	"version": "1.0.0",
+	"description": "Simple app to update your Leka Alpha on Windows, macOS & Linux",
+	"license": "MIT",
+	"repository": "https://github.com/weareleka/LekaAlphaUploader",
+	"author": {
+		"name": "Ladislas de Toldi",
+		"email": "ladislas@leka.io",
+		"url": "http://ladislas.me"
+	},
+	"main": "main.js",
+	"scripts": {
+		"test": "xo",
+		"start": "electron main.js",
+		"build": "electron-packager . --out=dist --asar --overwrite --all",
+		"build-osx": "electron-packager . --out=dist --overwrite --platform=darwin"
+	},
+	"dependencies": {
+		"electron-debug": "^1.0.0"
+	},
+	"devDependencies": {
+		"devtron": "^1.1.0",
+		"electron-packager": "^8.0.0",
+		"electron": "^1.6.6",
+		"xo": "^0.18.0"
+	},
+	"xo": {
+		"envs": [
+			"node",
+			"browser"
+		]
+	}
 }

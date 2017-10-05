@@ -6,22 +6,50 @@ body {
 
 body {
 	font-family: -apple-system, 'Helvetica Neue', Helvetica, sans-serif;
-}
-
-header {
-	position: absolute;
-	width: 500px;
-	height: 250px;
-	top: 50%;
-	left: 50%;
-	margin-top: -125px;
-	margin-left: -250px;
 	text-align: center;
 }
 
+header {
+	width: 100%;
+	margin-top: 10px;
+}
+
 header h1 {
+	width: 100%;
 	font-size: 60px;
 	font-weight: 100;
 	margin: 0;
 	padding: 0;
+}
+
+section {
+	width: 100% - 20px;
+	height: 200px;
+	background: #EEEEEE;
+	margin: 10px;
+	border-radius: 10px;
+}
+
+#dropZone div {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+#dropInstruction {
+	display: inline-block;
+	pointer-events: none;
+}
+
+input {
+	background-color: #4CAF50;
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px;
+	margin-top: 10px;
+	cursor: pointer;
 }
