@@ -25,7 +25,3 @@ holder.ondrop = function (e) {
 
 	return false;
 };
-
-function getHexFile() {
-	return hexFile;
-}

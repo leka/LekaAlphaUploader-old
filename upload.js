@@ -1,19 +1,36 @@
 'use strict';
 
-const exec = require('child_process');
+const os = require('os');
+const {exec} = require('child_process');
 
-let hexFile = getHexFile();
+const updateButtonEl = document.getElementById('updateButton');
+
+function setCommand() {
+	if (os.type() == 'Darwin') {
+		const avrdude = './bin/avrdude';
+		const conf    = '-C ./bin/osx-avrdude.conf'
+		const flags   = '-v -p atmega2560 -D -c wiring -b 115200 -P /dev/tty.usbmodem*'
+		const flash   = '-U flash:w:' + hexFile + ':i';
+	}
+
+	if (os.type() == 'Windows_NT') {
+		const avrdude = './bin/avrdude.exe';
+		const conf    = '-C ./bin/windows-avrdude.conf'
+		const flags   = '-v -p atmega2560 -D -c wiring -b 115200 -P COM*'
+		const flash   = '-U flash:w:' + hexFile + ':i';
+	}
+
+	return [avrdude, conf, flags, flash].join(" ");
+}
 
 function update() {
-	console.log(hexFile);
+	console.log("Hex file path: " + hexFile);
 
-	const avrdudePath = './bin/avrdude ';
-	const avrdudeConfPath = './bin/osx-avrdude.conf';
-	let avrdudeCommand = avrdudePath + '-v -p atmega2560 -C ' + avrdudeConfPath + ' -D -c wiring -b 115200 -P /dev/tty.usbmodem* -U flash:w:' + hexFile + ':i';
+	const command = setCommand();
 
-	console.log(avrdudeCommand);
+	console.log(command);
 
-	exec(avrdudeCommand, (err, stdout, stderr) => {
+	exec(command, (err, stdout, stderr) => {
 		if (err) {
 			console.error(err);
 			return;
@@ -26,7 +43,5 @@ function update() {
 		}
 	});
 }
-
-const updateButtonEl = document.getElementById('updateButton');
 
 updateButtonEl.addEventListener('click', update);
