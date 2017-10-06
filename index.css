@@ -42,7 +42,7 @@ section {
 }
 
 input {
-	background-color: #4CAF50;
+	border-radius: 10px;
 	border: none;
 	color: white;
 	padding: 15px 32px;
@@ -52,4 +52,12 @@ input {
 	margin: 4px;
 	margin-top: 10px;
 	cursor: pointer;
+}
+
+input:disabled {
+	background-color: light-grey;
+}
+
+input:enabled {
+	background-color: #4CAF50;
 }
