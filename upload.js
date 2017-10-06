@@ -3,8 +3,6 @@
 const os = require('os');
 const {exec} = require('child_process');
 
-const updateButtonEl = document.getElementById('updateButton');
-
 function setCommand() {
 	let command;
 

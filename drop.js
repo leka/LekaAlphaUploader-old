@@ -1,25 +1,26 @@
 'use strict';
 
-const dropZone = document.getElementById('dropZone');
-const dropInstruction = document.getElementById('dropInstruction');
+const dropZoneEl = document.getElementById('dropZone');
+const dropInstructionEl = document.getElementById('dropInstruction');
+const updateButtonEl = document.getElementById('updateButton');
 
 let hexPath;
 
 function setReaction (string, color, duration = 0.5) {
-	dropZone.style = 'background: ' + color + '; transition: ' + duration + 's;';
-	dropInstruction.innerHTML = string;
+	dropZoneEl.style = 'background: ' + color + '; transition: ' + duration + 's;';
+	dropInstructionEl.innerHTML = string;
 }
 
-dropZone.ondragover = () => {
+dropZoneEl.ondragover = () => {
 	return false;
 }
 
-dropZone.ondragenter = (e) => {
+dropZoneEl.ondragenter = (e) => {
 	setReaction("Yep here! That's right! :)", "#4CAF50");
 	return false;
 };
 
-dropZone.ondragleave = () => {
+dropZoneEl.ondragleave = () => {
 	setReaction("Oooh!... Come back! :(", "#EEEEEE");
 
 	setTimeout(function(){
@@ -29,18 +30,19 @@ dropZone.ondragleave = () => {
 	return false;
 };
 
-dropZone.ondragend = () => {
+dropZoneEl.ondragend = () => {
 	setReaction("Drag and drop the <code>.hex</code> file here.", "#EEEEEE")
 	return false;
 };
 
-dropZone.ondrop = function (e) {
+dropZoneEl.ondrop = function (e) {
 
 	e.preventDefault();
-	dropZone.style = "background: #EEEEEE; transition: 0.5s;";
+	dropZoneEl.style = "background: #EEEEEE; transition: 0.5s;";
 
 	if (e.dataTransfer.files.length != 1) {
-		dropInstruction.innerHTML = "Only one file should be dropped. Please try again."
+		dropInstructionEl.innerHTML = "Only one file should be dropped. Please try again."
+		updateButtonEl.disabled = true;
 		return false;
 	}
 
@@ -50,12 +52,15 @@ dropZone.ondrop = function (e) {
 	const fileExtension = fileName.slice((fileName.lastIndexOf(".") - 1 >>> 0) + 2);
 
 	if (fileExtension != 'hex') {
-		dropInstruction.innerHTML = 'You dropped a <code>' + fileExtension + '</code> file.</br>The file must be a <code>.hex</code> file. Please try again.'
+		dropInstructionEl.innerHTML = 'You dropped a <code>' + fileExtension + '</code> file.</br>The file must be a <code>.hex</code> file. Please try again.'
+		updateButtonEl.disabled = true;
 		return false;
 	}
 
 	hexPath = filePath;
-	dropInstruction.innerHTML = 'Well done! We are about to upload <code>'+ fileName + '</code></br>You can now click the Upload button bellow.'
+	dropInstructionEl.innerHTML = 'Well done! We are about to upload <code>'+ fileName + '</code></br>You can now click the Update button bellow.'
+	updateButtonEl.disabled = false;
+
 
 	return false;
 };
