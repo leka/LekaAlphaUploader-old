@@ -1,6 +1,6 @@
 {
 	"name": "app",
-	"productName": "Leka Alpha Uploader",
+	"productName": "LekaAlphaUploader",
 	"version": "1.0.0",
 	"description": "Simple app to update your Leka Alpha on Windows, macOS & Linux",
 	"license": "MIT",
