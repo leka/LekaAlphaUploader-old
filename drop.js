@@ -61,6 +61,5 @@ dropZoneEl.ondrop = function (e) {
 	dropInstructionEl.innerHTML = 'Well done! We are about to upload <code>'+ fileName + '</code></br>You can now click the Update button bellow.'
 	updateButtonEl.disabled = false;
 
-
 	return false;
 };
