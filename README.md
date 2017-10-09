@@ -2,7 +2,6 @@
 
 > My superb app
 
-
 ## Dev
 
 ```

@@ -1,4 +1,6 @@
+/*jslint node: true, esversion: 6 */
 'use strict';
+
 const electron = require('electron');
 
 const app = electron.app;
@@ -18,7 +20,7 @@ function onClosed() {
 function createMainWindow() {
 	const win = new electron.BrowserWindow({
 		width: 600,
-		height: 400
+		height: 430
 	});
 
 	win.loadURL(`file://${__dirname}/index.html`);
