@@ -61,3 +61,10 @@ input:disabled {
 input:enabled {
 	background-color: #4CAF50;
 }
+
+#completeOutput {
+	display: none;
+	text-align: left;
+	font-family: Courier, 'New Courier', monospace;
+	font-size: 12px;
+}
