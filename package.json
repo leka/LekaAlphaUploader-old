@@ -15,7 +15,8 @@
 		"test": "xo",
 		"start": "electron main.js",
 		"build": "electron-packager . --out=dist --asar --overwrite --all",
-		"build-osx": "electron-packager . --out=dist --overwrite --platform=darwin"
+		"build-osx": "electron-packager . --out=dist --overwrite --platform=darwin",
+		"build-win": "electron-packager . --out=dist --overwrite --platform=win32 --arch=x64"
 	},
 	"dependencies": {
 		"electron-debug": "^1.0.0"

@@ -1,21 +1,4 @@
-/*jslint node: true, esversion: 6 */
 'use strict';
-
-const dropZoneEl = document.getElementById('dropZone');
-const dropInstructionEl = document.getElementById('dropInstruction');
-
-const readingProgressEl   = document.getElementById('readingProgress');
-const writingProgressEl   = document.getElementById('writingProgress');
-const verifyingProgressEl = document.getElementById('verifyingProgress');
-const statusEl            = document.getElementById('status');
-
-const updateButtonEl = document.getElementById('updateButton');
-const cancelButtonEl = document.getElementById('cancelButton');
-
-const completeOutputEl     = document.getElementById("completeOutput");
-const showCompleteOutputEl = document.getElementById("showCompleteOutputButton");
-
-let hexPath;
 
 function setReaction (string, color, duration = 0.5) {
 	dropZoneEl.style = 'background: ' + color + '; transition: ' + duration + 's;';
@@ -52,8 +35,9 @@ dropZoneEl.ondrop = function (e) {
 	dropZoneEl.style = "background: #EEEEEE; transition: 0.5s;";
 
 	if (e.dataTransfer.files.length != 1) {
-		dropInstructionEl.innerHTML = "Only one file should be dropped. Please try again.";
-		updateButtonEl.disabled = true;
+		dropInstructionEl.innerHTML = 'Only one file should be dropped. Please try again.';
+		output('Error: Multiple files dropped');
+		setButtonsState('off');
 		return false;
 	}
 
@@ -64,14 +48,16 @@ dropZoneEl.ondrop = function (e) {
 
 	if (fileExtension != 'hex') {
 		dropInstructionEl.innerHTML = 'You dropped a <code>' + fileExtension + '</code> file.</br>The file must be a <code>.hex</code> file. Please try again.';
-		updateButtonEl.disabled = true;
+		output('Error: non hex file dropped');
+		setButtonsState('off');
 		return false;
 	}
 
 	hexPath = filePath;
-	dropInstructionEl.innerHTML = 'Well done! We are about to upload <code>'+ fileName + '</code></br>You can now click the Update button bellow.';
-	statusEl.innerHTML = 'Click the green button';
-	updateButtonEl.disabled = false;
+	refreshPortList();
+	dropInstructionEl.innerHTML = 'Well done! We are about to upload <code>'+ fileName + '</code></br>You can now select the port before pressing the Update button bellow.';
+	output('Info: ' + fileName + ' dropped');
+	status('Select the port to which your device is connected');
 
 	return false;
 };

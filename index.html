@@ -21,31 +21,45 @@
 
 		</section>
 
-		<progress id="readingProgress" value="0" max="100">0%</progress>
-		<progress id="writingProgress" value="0" max="100">0%</progress>
-		<progress id="verifyingProgress" value="0" max="100">0%</progress>
+		<section id="portsAvailable">
 
-		<div id="status">Drop file in the area above...</div>
+			<select id="portList">
+				<option value="">Choose port</option>
+			</select>
 
-		<input id="updateButton" type="button" name="Update" value="Update Leka" disabled>
-		<input id="cancelButton" type="button" name="Cancel" value="Cancel" disabled>
+			<input id="refreshPortListButton" type="button" name="listPort" value="Refresh port list">
+
+		</section>
+
+		<section id="progressInformation">
+
+			<progress id="readingProgress" value="0" max="100"></progress>
+			<progress id="writingProgress" value="0" max="100"></progress>
+			<progress id="verifyingProgress" value="0" max="100"></progress>
+
+			<div id="status">Drop file in the area above...</div>
+
+		</section>
+
+		<section id="actionButtons">
+
+			<input id="updateButton" type="button" name="Update" value="Update Leka" disabled>
+			<input id="cancelButton" type="button" name="Cancel" value="Cancel" disabled>
+
+		</section>
+
+		<section id="output">
+
+			<pre id="completeOutput">Output...<br></pre>
+
+		</section>
 
 	</div> <!-- container -->
 
-<!-- 	<div class="container">
-
-		<button id="showCompleteOutputButton">Show complete output...</button>
-
-		<br>
-
-		<div id="completeOutput"></div>
-
-	</div> -->
-
+	<script type="text/javascript" src="vars.js"></script>
 	<script type="text/javascript" src="drop.js"></script>
+	<script type="text/javascript" src="ports.js"></script>
 	<script type="text/javascript" src="upload.js"></script>
-
-
 
 </body>
 
