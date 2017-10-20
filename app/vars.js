@@ -1,6 +1,6 @@
 'use strict';
 
-const dropZoneEl = document.getElementById('dropZone');
+const dropZoneEl = document.getElementById('dropzoneSection');
 const dropInstructionEl = document.getElementById('dropInstruction');
 
 const readingProgressEl   = document.getElementById('readingProgress');
@@ -15,6 +15,8 @@ const portListEl = document.getElementById('portList');
 const refreshPortListButtonEl = document.getElementById('refreshPortListButton');
 
 const completeOutputEl = document.getElementById("completeOutput");
+
+const clipboard = new Clipboard('#copyOutputButton');
 
 let hexPath;
 

@@ -27,15 +27,12 @@ function updateProgress(data, currentState) {
 
 	switch (currentState) {
 		case state.reading:
-		// output('reading progress: ' + progress);
 		readingProgressEl.value += progress;
 		break;
 		case state.writing:
-		// output('writing progress: ' + progress);
 		writingProgressEl.value += progress;
 		break;
 		case state.verifying:
-		// output('verifying progress: ' + progress);
 		verifyingProgressEl.value += progress;
 		break;
 	}
