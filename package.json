@@ -1,5 +1,5 @@
 {
-	"name": "app",
+	"name": "LekaAlphaUploader",
 	"productName": "LekaAlphaUploader",
 	"version": "1.5.0",
 	"description": "Simple app to update your Leka Alpha on Windows, macOS & Linux",
@@ -10,12 +10,17 @@
 		"email": "ladislas@leka.io",
 		"url": "http://ladislas.me"
 	},
-	"main": "main.js",
+	"main": "app/main.js",
+	"files": [
+		"app/**/*",
+		"node_modules/**/*",
+		"package.json"
+	],
 	"scripts": {
 		"test": "xo",
-		"start": "electron main.js",
-		"build": "electron-packager . --out=dist --asar --overwrite --all",
-		"build-osx": "electron-packager . --out=dist --overwrite --platform=darwin"
+		"start": "electron app/main.js",
+		"build-osx": "electron-packager . --out=dist --overwrite --platform=darwin",
+		"build-win": "electron-packager . --out=dist --overwrite --platform=win32 --arch=x64"
 	},
 	"dependencies": {
 		"electron-debug": "^1.0.0"
