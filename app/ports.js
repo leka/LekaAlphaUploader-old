@@ -8,8 +8,8 @@ function refreshPortList() {
 	portListEl.innerHTML = '<option value="">Choose port</option>';
 
 	if (os.type() == 'Darwin') {
-		command = 'ls /dev/tty*';
-		// command = 'ls /dev/tty.usb*';
+		// command = 'ls /dev/tty*';
+		command = 'ls /dev/tty.usb*';
 	}
 	else if (os.type() == 'Windows_NT') {
 		command = 'powershell.exe [System.IO.Ports.SerialPort]::getportnames()';
