@@ -1,157 +1,148 @@
-html,
-body {
-	padding: 0;
-	margin: 0;
-}
 
 body {
-	font-family: -apple-system, 'Helvetica Neue', Helvetica, sans-serif;
 	text-align: center;
 }
 
-header {
-	width: 100%;
-	margin-top: 10px;
-}
-
 header h1 {
-	width: 100%;
-
 	margin: 0;
 	padding: 0;
-
 	font-size: 60px;
 	font-weight: 100;
 }
 
+code {
+	padding: .2rem .4rem;
+	font-size: 90%;
+	color: #bd4147;
+	background-color: #f8f9fa;
+	border-radius: .25rem;
+}
+
 #dropzoneSection  {
-	width: 100% - 20px;
 	height: 200px;
-
-	margin: 10px;
+	margin: 10px 10px 0px 10px;
 	border-radius: 10px;
-
-	background: #EEEEEE;
+	background: #eee;
 }
 
 #dropInstruction {
 	position: relative;
 	top: 50%;
 	transform: translateY(-50%);
-
-	display: inline-block;
 	pointer-events: none;
 }
 
 #portsAvailableSection {
-	margin: 10px;
+	margin-top: 15px;
 }
 
 #portsAvailableSection>select {
 	width: 250px;
 }
 
+#refreshPortListButton {
+	cursor: pointer;
+}
+
 #progressSection {
-	width: 100% - 20px;
-	height: 20;
-	margin: 10px;
+	margin-top: 15px;
+}
+
+#progressBars {
+	height: 13px;
+}
+
+#status {
+	margin-top: 15px;
 }
 
 #actionSection {
-	width: 100% - 20px;
-	height: 20;
-	margin: 10px;
+	margin-top: 15px;
 }
 
-#updateButton, #cancelButton {
-	padding: 15px 32px;
-
-	margin: 4px;
-	margin-top: 10px;
+#updateButton,
+#cancelButton {
+	width: 150px;
+	margin: 0 4px 0 4px;
+	padding: 10px 0px;
 
 	border-radius: 10px;
 	border: none;
 	color: white;
 
 	text-decoration: none;
-	display: inline-block;
-	font-size: 16px;
-
 	cursor: pointer;
+	font-size: 16px;
 }
 
-#updateButton:disabled, #cancelButton:disabled {
+#updateButton:disabled,
+#cancelButton:disabled {
 	background-color: lightgrey;
 }
 
-#updateButton:enabled, #cancelButton:enabled {
+#updateButton:enabled,
+#cancelButton:enabled {
 	background-color: #4CAF50;
 }
 
 #outputSection {
 	position: relative;
-	width: 100% - 20px;
-	height: 20;
-	margin: 10px;
+	margin: 10px 10px 0px 10px;
+	height: 20px;
+	margin-top: 10px;
 }
 
 .clippy {
-    margin-top: -3px;
-    position: relative;
-    top: 3px;
+	margin-top: -3px;
+	position: relative;
+	top: 3px;
 }
 
 .btn {
-	    border: 1px solid #d5d5d5;
-    border-radius: 3px;
+	border: 1px solid #d5d5d5;
+	border-radius: 3px;
 }
 
 .btn:focus {
-    text-decoration: none;
-    border-color: #51a7e8;
-    outline: none;
-    box-shadow: 0 0 5px rgba(81, 167, 232, 0.5)
+	text-decoration: none;
+	border-color: #51a7e8;
+	outline: none;
+	box-shadow: 0 0 5px rgba(81, 167, 232, 0.5)
 }
 .btn:focus:hover,
 .btn.selected:focus {
-    border-color: #51a7e8
+	border-color: #51a7e8
 }
 .btn:hover,
 .btn:active {
-    text-decoration: none;
-    background-color: #ddd;
-    background-image: linear-gradient(#eee, #ddd);
-    border-color: #ccc
+	text-decoration: none;
+	background-color: #ddd;
+	background-image: linear-gradient(#eee, #ddd);
+	border-color: #ccc
 }
 .btn:active,
 .btn.selected {
-    background-color: #dcdcdc;
-    background-image: none;
-    border-color: #b5b5b5;
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15)
+	background-color: #dcdcdc;
+	background-image: none;
+	border-color: #b5b5b5;
+	box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15)
 }
 
 #copyOutputButton {
-	/*float:right;*/
-	transition: opacity 0.3s ease-in-out;
 	position: absolute;
+	top: 6px;
+	right: 6px;
 	z-index: 10;
-	top: 4px;
-	right: 4px;
-
-	/*background: white;*/
-	/*border-radius: 10px;*/
 
 	cursor: pointer;
-    background-color: #eee;
-    background-image: linear-gradient(#fcfcfc,#eee);
-    /*border: 2px solid #d5d5d5;*/
-    /*border-radius: 10px;*/
+	background-color: #eee;
+	background-image: linear-gradient(#fcfcfc,#eee);
+	transition: opacity 0.3s ease-in-out;
 }
 
 #completeOutput {
 	-webkit-user-select: text;
-	background: #EEEEEE;
+	background: #eee;
 	position: absolute;
 	margin: 0;
 	width: 100%;
