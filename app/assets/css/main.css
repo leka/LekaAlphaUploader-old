@@ -1,0 +1,158 @@
+
+body {
+	text-align: center;
+}
+
+header h1 {
+	margin: 0;
+	padding: 0;
+	font-size: 60px;
+	font-weight: 100;
+}
+
+code {
+	padding: .2rem .4rem;
+	font-size: 90%;
+	color: #bd4147;
+	background-color: #f8f9fa;
+	border-radius: .25rem;
+}
+
+#dropzoneSection  {
+	height: 200px;
+	margin: 10px 10px 0px 10px;
+	border-radius: 10px;
+	background: #eee;
+}
+
+#dropInstruction {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+	pointer-events: none;
+}
+
+#portsAvailableSection {
+	margin-top: 15px;
+}
+
+#portsAvailableSection>select {
+	width: 250px;
+}
+
+#refreshPortListButton {
+	cursor: pointer;
+}
+
+#progressSection {
+	margin-top: 15px;
+}
+
+#progressBars {
+	height: 13px;
+}
+
+#status {
+	margin-top: 15px;
+}
+
+#actionSection {
+	margin-top: 15px;
+}
+
+#updateButton,
+#cancelButton {
+	width: 150px;
+	margin: 0 4px 0 4px;
+	padding: 10px 0px;
+
+	border-radius: 10px;
+	border: none;
+	color: white;
+
+	text-decoration: none;
+	cursor: pointer;
+	font-size: 16px;
+}
+
+#updateButton:disabled,
+#cancelButton:disabled {
+	background-color: lightgrey;
+}
+
+#updateButton:enabled,
+#cancelButton:enabled {
+	background-color: #4CAF50;
+}
+
+#outputSection {
+	position: relative;
+	margin: 10px 10px 0px 10px;
+	height: 20px;
+	margin-top: 10px;
+}
+
+.clippy {
+	margin-top: -3px;
+	position: relative;
+	top: 3px;
+}
+
+.btn {
+	border: 1px solid #d5d5d5;
+	border-radius: 3px;
+}
+
+.btn:focus {
+	text-decoration: none;
+	border-color: #51a7e8;
+	outline: none;
+	box-shadow: 0 0 5px rgba(81, 167, 232, 0.5)
+}
+.btn:focus:hover,
+.btn.selected:focus {
+	border-color: #51a7e8
+}
+.btn:hover,
+.btn:active {
+	text-decoration: none;
+	background-color: #ddd;
+	background-image: linear-gradient(#eee, #ddd);
+	border-color: #ccc
+}
+.btn:active,
+.btn.selected {
+	background-color: #dcdcdc;
+	background-image: none;
+	border-color: #b5b5b5;
+	box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15)
+}
+
+#copyOutputButton {
+	position: absolute;
+	top: 6px;
+	right: 6px;
+	z-index: 10;
+
+	cursor: pointer;
+	background-color: #eee;
+	background-image: linear-gradient(#fcfcfc,#eee);
+	transition: opacity 0.3s ease-in-out;
+}
+
+#completeOutput {
+	-webkit-user-select: text;
+	background: #eee;
+	position: absolute;
+	margin: 0;
+	width: 100%;
+	height: 200px;
+	padding: 10px;
+	border-radius: 10px;
+
+	text-align: left;
+	font-family: Courier, 'New Courier', monospace;
+	font-size: 8px;
+	word-wrap: break-word;
+	overflow: scroll;
+}

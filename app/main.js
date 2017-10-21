@@ -1,8 +1,6 @@
-/*jslint node: true, esversion: 6 */
 'use strict';
 
 const electron = require('electron');
-
 const app = electron.app;
 
 // Adds debug features like hotkeys for triggering dev tools and reload
@@ -19,8 +17,8 @@ function onClosed() {
 
 function createMainWindow() {
 	const win = new electron.BrowserWindow({
-		width: 600,
-		height: 430
+		width: 800,
+		height: 705
 	});
 
 	win.loadURL(`file://${__dirname}/index.html`);

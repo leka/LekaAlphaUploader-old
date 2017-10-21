@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	<title>Leka Alpha Updater</title>
+
+	<link rel="stylesheet" href="assets/css/photon.min.css">
+	<link rel="stylesheet" href="assets/css/main.css">
+
+	<script type="text/javascript" src="assets/js/clipboard.min.js"></script>
+
+</head>
+
+<body>
+
+	<div class="container">
+
+		<header>
+			<h1>Leka Alpha Updater</h1>
+		</header>
+
+		<section id="dropzoneSection" class="main">
+
+			<div id="dropInstruction">Drag and drop the <code>.hex</code> file here.</div>
+
+		</section>
+
+		<section id="portsAvailableSection">
+
+			<select id="portList">
+				<option value="">Choose port</option>
+			</select>
+
+			<input id="refreshPortListButton" type="button" name="listPort" value="Refresh port list">
+
+		</section>
+
+		<section id="progressSection">
+
+			<div id="progressBars">
+				<progress id="readingProgress" value="0" max="100"></progress>
+				<progress id="writingProgress" value="0" max="100"></progress>
+				<progress id="verifyingProgress" value="0" max="100"></progress>
+			</div>
+
+			<div id="status">
+				<p>Drop file in the area above...</p>
+			</div>
+
+		</section>
+
+		<section id="actionSection">
+
+			<input id="updateButton" type="button" name="Update" value="Update Leka" disabled>
+			<input id="cancelButton" type="button" name="Cancel" value="Cancel" disabled>
+
+		</section>
+
+		<section id="outputSection">
+
+			<button id="copyOutputButton" class="btn btn-light" data-clipboard-target="#completeOutput">
+				<img class="clippy" src="assets/img/clippy.svg" width="13" alt="Copy to clipboard">
+			</button>
+
+			<pre id="completeOutput">Output...<br></pre>
+
+		</section>
+
+	</div> <!-- container -->
+
+	<script type="text/javascript" src="vars.js"></script>
+	<script type="text/javascript" src="drop.js"></script>
+	<script type="text/javascript" src="ports.js"></script>
+	<script type="text/javascript" src="upload.js"></script>
+
+</body>
+
+</html>
