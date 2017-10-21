@@ -11,14 +11,22 @@
 		"url": "http://ladislas.me"
 	},
 	"main": "app/main.js",
-	"files": [
-		"app/**/*",
-		"node_modules/**/*",
-		"package.json"
-	],
+	"build": {
+		"appId": "io.leka.LekaAlphaUploader",
+		"files": [
+			"app/**/*",
+			"node_modules/**/*",
+			"package.json"
+		],
+		"asar": false
+	},
 	"scripts": {
 		"test": "xo",
 		"start": "electron app/main.js",
+		"pack": "electron-builder --dir",
+		"dist": "electron-builder --mac --win",
+		"dist-osx": "electron-builder --mac",
+		"dist-win": "electron-builder --win --x64",
 		"build-osx": "electron-packager . --out=dist --overwrite --platform=darwin",
 		"build-win": "electron-packager . --out=dist --overwrite --platform=win32 --arch=x64"
 	},
@@ -27,8 +35,9 @@
 	},
 	"devDependencies": {
 		"devtron": "^1.1.0",
-		"electron-packager": "^8.0.0",
 		"electron": "^1.6.6",
+		"electron-builder": "^19.37.2",
+		"electron-packager": "^8.0.0",
 		"xo": "^0.18.0"
 	},
 	"xo": {
