@@ -36,7 +36,7 @@ dropZoneEl.ondrop = function (e) {
 
 	if (e.dataTransfer.files.length != 1) {
 		dropInstructionEl.innerHTML = 'Only one file should be dropped. Please try again.';
-		output('Error: Multiple files dropped');
+		output('error', 'Multiple files dropped');
 		setButtonsState('off');
 		return false;
 	}
@@ -48,7 +48,7 @@ dropZoneEl.ondrop = function (e) {
 
 	if (fileExtension != 'hex') {
 		dropInstructionEl.innerHTML = 'You dropped a <code>' + fileExtension + '</code> file.</br>The file must be a <code>.hex</code> file. Please try again.';
-		output('Error: non hex file dropped');
+		output('error', 'Non hex file dropped');
 		setButtonsState('off');
 		return false;
 	}
@@ -56,7 +56,7 @@ dropZoneEl.ondrop = function (e) {
 	hexPath = filePath;
 	refreshPortList();
 	dropInstructionEl.innerHTML = 'Well done! We are about to upload <code>'+ fileName + '</code></br>You can now select the port before pressing the Update button bellow.';
-	output('Info: ' + fileName + ' dropped');
+	output('info', fileName + ' dropped');
 	status('Select the port to which your device is connected');
 
 	return false;

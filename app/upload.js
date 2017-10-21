@@ -123,7 +123,7 @@ function upload() {
 
 	resetProgress();
 
-	output("Info: " + getAvrdudeCommand());
+	output('info', getAvrdudeCommand());
 	cmd = spawn(getAvrdudeCommand(), [], {shell: true});
 
 	cmd.on('error', function( err ){
@@ -132,39 +132,37 @@ function upload() {
 	});
 
 	cmd.stdout.on('data', (data) => {
-		console.log(`stdout: ${data}`);
-		completeOutputEl.innerHTML += data.toString()
+		output('raw', data.toString());
 	});
 
 	cmd.stderr.on('data', (data) => {
-		console.log(`stderr: ${data}`);
-		completeOutputEl.innerHTML += data.toString()
+		output('raw', data.toString());
 		analyze(data);
 	});
 
 	cmd.on('close', (code) => {
-		output(`Info: child_process exited with code "${code}"`);
+		output('info', `child_process exited with code "${code}"`);
 
 		if (code == 0 && currentState == state.success) {
 			status('Everything seems to be okay! You can now test the robot');
-			output('Success: Upload complete');
+			output('success', 'Upload complete');
 			setButtonsState('ready');
 			timeoutCount = 0;
 		}
 
 		if (currentState == state.noport) {
-			output('Error: No port was found');
+			output('error', 'No port was found');
 			setButtonsState('ready');
 		}
 
 		if (currentState == state.timeout || currentState == state.mismatch) {
-			output('Info: Timeout or mismatch encountered, restart the upload process');
+			output('info', 'Timeout or mismatch encountered, restart the upload process');
 			upload();
 		}
 
 		if (currentState == state.noconnection) {
 			status('There has been too many timeouts, check your connection and try again.');
-			output('Error: Too many timeouts, issue with the connection');
+			output('error', 'Too many timeouts, issue with the connection');
 			setButtonsState('ready');
 		}
 	});
@@ -175,7 +173,7 @@ function cancel() {
 	timeoutCount = 0;
 	resetProgress();
 	setButtonsState('ready');
-	output('Info: Cancel button pressed');
+	output('info', 'Cancel button pressed');
 	status('Cancel button pressed... Want to try again?')
 }
 

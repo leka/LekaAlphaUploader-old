@@ -17,18 +17,17 @@ function refreshPortList() {
 
 	exec(command, (error, stdout, stderr) => {
 		if (error) {
-			output(`Error (exec): ${error}`);
+			output('error', error);
 			return;
 		}
 
 		if (stdout) {
-			output('Info: Refreshing port list');
 			ports = stdout.replace(/^\s+|\s+$/g, '').split('\n');
-			output('Info: Ports available - ' + ports);
+			output('info', ports);
 		}
 
 		if (stderr) {
-			output(`Error: ${stderr}`);
+			output('error', stderr);
 		}
 
 		ports.forEach(function(port) {
@@ -41,12 +40,12 @@ function getSelectedPort() {
 	if (portListEl.value != undefined || portListEl.value != 'Choose port') {
 		setButtonsState('ready');
 		selectedPort = portListEl.value;
-		output('Info: ' + selectedPort + ' selected')
+		output('info', selectedPort + ' selected')
 		status('You can now press the update button');
 	}
 	else {
 		alert("Port not correct");
-		output('Error: ' + selectedPort + ' not correct')
+		output('error', selectedPort + ' not correct')
 		return
 	}
 }
