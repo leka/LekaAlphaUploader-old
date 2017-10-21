@@ -123,11 +123,11 @@ function upload() {
 
 	resetProgress();
 
-	output('info', getAvrdudeCommand());
+	output('info', getAvrdudeCommand() + '\n');
 	cmd = spawn(getAvrdudeCommand(), [], {shell: true});
 
 	cmd.on('error', function( err ){
-		completeOutputEl.innerHTML += err.toString()
+		output('error', err.toString())
 		throw err
 	});
 
