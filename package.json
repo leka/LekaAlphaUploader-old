@@ -24,7 +24,7 @@
 		"test": "xo",
 		"start": "electron app/main.js",
 		"pack": "electron-builder --dir",
-		"dist": "electron-builder --mac --win",
+		"dist": "electron-builder --mac --win --ia32 --x64",
 		"dist-osx": "electron-builder --mac",
 		"dist-win": "electron-builder --win --x64",
 		"build-osx": "electron-packager . --out=dist --overwrite --platform=darwin",
