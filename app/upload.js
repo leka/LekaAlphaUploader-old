@@ -58,6 +58,7 @@ function resetProgress() {
 	document.getElementById('writingProgress').value = 0;
 	document.getElementById('verifyingProgress').value = 0;
 	currentState = state.off;
+	timeoutCount = 0;
 }
 
 function analyze(data) {
