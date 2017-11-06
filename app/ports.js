@@ -23,7 +23,7 @@ function refreshPortList() {
 
 		if (stdout) {
 			ports = stdout.replace(/^\s+|\s+$/g, '').split('\n');
-			output('info', ports);
+			output('info', 'Port(s) available: ' + ports);
 		}
 
 		if (stderr) {
@@ -40,7 +40,7 @@ function getSelectedPort() {
 	if (portListEl.value != undefined || portListEl.value != 'Choose port') {
 		setButtonsState('ready');
 		selectedPort = portListEl.value;
-		output('info', selectedPort + ' selected')
+		output('info', 'Port ' + selectedPort + ' selected')
 		status('You can now press the update button');
 	}
 	else {

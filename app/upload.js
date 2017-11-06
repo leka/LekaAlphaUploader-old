@@ -124,7 +124,7 @@ function upload() {
 
 	resetProgress();
 
-	output('info', getAvrdudeCommand() + '\n');
+	output('info', 'Running ' + getAvrdudeCommand() + '\n');
 	cmd = spawn(getAvrdudeCommand(), [], {shell: true});
 
 	cmd.on('error', function( err ){
@@ -157,7 +157,7 @@ function upload() {
 		}
 
 		if (currentState == state.timeout || currentState == state.mismatch) {
-			output('info', 'Timeout or mismatch encountered, restart the upload process');
+			output('info', 'Timeout or mismatch encountered, restarting the upload process');
 			upload();
 		}
 
