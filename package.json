@@ -1,7 +1,7 @@
 {
 	"name": "LekaAlphaUploader",
 	"productName": "LekaAlphaUploader",
-	"version": "2.0.0",
+	"version": "2.1.0",
 	"description": "Simple app to update your Leka Alpha on Windows, macOS & Linux",
 	"license": "MIT",
 	"repository": "https://github.com/weareleka/LekaAlphaUploader",
@@ -24,7 +24,7 @@
 		"test": "xo",
 		"start": "electron app/main.js",
 		"pack": "electron-builder --dir",
-		"dist": "electron-builder --mac --win",
+		"dist": "electron-builder --mac --win --ia32 --x64",
 		"dist-osx": "electron-builder --mac",
 		"dist-win": "electron-builder --win --x64",
 		"build-osx": "electron-packager . --out=dist --overwrite --platform=darwin",
